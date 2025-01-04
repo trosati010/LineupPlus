@@ -47,7 +47,7 @@ let hardcodedTeams = [
               { name: "Center field", label: 8, player: undefined },
               { name: "Left field", label: 7, player: undefined },
               { name: "Right field", label: 9, player: undefined },
-              { name: "Out 1", label: 11, player: undefined },
+              { name: "Out 1", label: 10, player: undefined },
             ],
           },
           {
@@ -62,7 +62,7 @@ let hardcodedTeams = [
               { name: "Center field", label: 8, player: undefined },
               { name: "Left field", label: 7, player: undefined },
               { name: "Right field", label: 9, player: undefined },
-              { name: "Out 1", label: 11, player: undefined },
+              { name: "Out 1", label: 10, player: undefined },
             ],
           },
           {
@@ -77,7 +77,7 @@ let hardcodedTeams = [
               { name: "Center field", label: 8, player: undefined },
               { name: "Left field", label: 7, player: undefined },
               { name: "Right field", label: 9, player: undefined },
-              { name: "Out 1", label: 11, player: undefined },
+              { name: "Out 1", label: 10, player: undefined },
             ],
           },
           {
@@ -92,7 +92,7 @@ let hardcodedTeams = [
               { name: "Center field", label: 8, player: undefined },
               { name: "Left field", label: 7, player: undefined },
               { name: "Right field", label: 9, player: undefined },
-              { name: "Out 1", label: 11, player: undefined },
+              { name: "Out 1", label: 10, player: undefined },
             ],
           },
           {
@@ -107,7 +107,7 @@ let hardcodedTeams = [
               { name: "Center field", label: 8, player: undefined },
               { name: "Left field", label: 7, player: undefined },
               { name: "Right field", label: 9, player: undefined },
-              { name: "Out 1", label: 11, player: undefined },
+              { name: "Out 1", label: 10, player: undefined },
             ],
           },
           {
@@ -122,7 +122,7 @@ let hardcodedTeams = [
               { name: "Center field", label: 8, player: undefined },
               { name: "Left field", label: 7, player: undefined },
               { name: "Right field", label: 9, player: undefined },
-              { name: "Out 1", label: 11, player: undefined },
+              { name: "Out 1", label: 10, player: undefined },
             ],
           },
         ],

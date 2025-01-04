@@ -18,20 +18,20 @@ function setup() {
   // init position locations based off current canvas
   positionLocations = [
     { x: 0, y: 0 }, //none
-    { x: width / 2, y: height / 2 - 120 }, //pitcher
-    { x: width / 2, y: height / 2 - 30 }, //catcher
-    { x: width / 2 + 90, y: height / 2 - 120 }, //first
-    { x: width / 2, y: height / 2 - 210 }, //second
-    { x: width / 2 - 90, y: height / 2 - 120 }, //third
-    { x: width / 2 - 55, y: height / 2 - 170 }, //short
-    { x: width / 2 - 150, y: height / 2 - 270 }, //left
-    { x: width / 2, y: height / 2 - 310 }, //center
-    { x: width / 2 + 110, y: height / 2 - 270 }, //right
-    { x: width / 2 - 170, y: height / 2 - 75 }, //out1
-    { x: width / 2 - 170, y: height / 2 - 50 }, //out2
-    { x: width / 2 - 170, y: height / 2 - 25 }, //out3
-    { x: width / 2 - 170, y: height / 2 - 0 }, //out4
-    { x: width / 2 - 150, y: height / 2 + 25 }, //out5
+    { x: width / 2, y: height / 2 - 40 }, //pitcher
+    { x: width / 2, y: height / 2 + 50 }, //catcher
+    { x: width / 2 + 90, y: height / 2 - 40 }, //first
+    { x: width / 2, y: height / 2 - 130 }, //second
+    { x: width / 2 - 90, y: height / 2 - 40 }, //third
+    { x: width / 2 - 65, y: height / 2 - 100 }, //short
+    { x: width / 2 - 150, y: height / 2 - 220 }, //left
+    { x: width / 2, y: height / 2 - 260 }, //center
+    { x: width / 2 + 110, y: height / 2 - 220 }, //right
+    { x: width / 2 - 170, y: height / 2 + 25 }, //out1
+    { x: width / 2 - 170, y: height / 2 + 50 }, //out2
+    { x: width / 2 - 170, y: height / 2 + 75 }, //out3
+    { x: width / 2 - 170, y: height / 2 + 100 }, //out4
+    { x: width / 2 - 150, y: height / 2 + 125 }, //out5
   ];
 
   //load teams
@@ -55,9 +55,9 @@ function setup() {
 function drawUi() {
   // draw the UI
   background(220);
-  drawBaseballField(width / 2, height / 2 + 60, 700, 800, "GREEN");
-  drawBaseballField(width / 2, height / 2 + 40, 500, 600, "BROWN");
-  drawBaseballDiamond(width / 2, height / 2 - 120, 200, 200); // Call function to draw the diamond
+  drawBaseballField(width / 2, height / 2 + 100, 700, 800, "GREEN");
+  drawBaseballField(width / 2, height / 2 + 80, 500, 600, "BROWN");
+  drawBaseballDiamond(width / 2, height / 2 - 40, 200, 200); // Call function to draw the diamond
   drawAllPlayerPositions();
 }
 
@@ -66,6 +66,21 @@ function drawTopNav() {
     .class("nav-container")
     .style("width", `${width}px`)
     .position(0, 0);
+
+  const titleBar = createDiv(
+    "<span class='material-icons' style='background:#000; padding:4px; margin-right:5px;'>sports_baseball</span>LineupMagic"
+  )
+    .parent(topNavContainer)
+    .style("background", "#444")
+    .style("color", "#FFF")
+    .style("display", "flex")
+    .style("font-family", "arial")
+    .style("align-items", "center");
+  const baseball = createSpan("auto_awesome")
+    .class("material-icons")
+    .style("color", "#EA33F7")
+    .style("padding", "2px")
+    .parent(titleBar);
 
   const teamGameContainer = createDiv("")
     .class("teamgame-container")
@@ -290,19 +305,6 @@ function drawPlayerPosition(position, currentTeam) {
     scrollToPageTop();
   });
 
-  // Draw player button
-  // const playerBtn = createButton('')
-  //   .class('player-button') // Ensure you define appropriate CSS for this class
-  //   .position(x - 15, y - 15)
-  //   .size(labelWidth ? labelWidth + 20 : 25, 30)
-  //   .mousePressed(() => {
-  //     console.log(`Selected position: ${position.name} (${label}) - ${(player?.name)}`);
-  //     //scrollToPageBottom();
-  //     //showPlayerPanel(position, currentTeam);
-  //     playerSelection.style('display', 'block');
-  //     playerSelection.focus();
-  //   });
-
   pop();
 }
 
@@ -322,7 +324,7 @@ function createAutoFieldingButton() {
   const autoFieldingBtn = createButton(
     `<span title="Determine players for open positions" class="material-icons">${autoFieldingIco}</span>`
   ).class("fielding-button");
-  autoFieldingBtn.position(width - 125, height / 2);
+  autoFieldingBtn.position(width / 2 - 30, height / 2 + 120);
   autoFieldingBtn.mousePressed(() => {
     console.log("Auto Fielding Button Clicked");
     autoFieldingBtn.remove();
@@ -342,56 +344,56 @@ function drawDugout() {
     .class("material-icons")
     .style("font-size: 40px;")
     .style("color: #7E7E7E")
-    .position(10, height / 2 - 85);
+    .position(10, height / 2 - 30);
 }
 
-function showPlayerPanel(selectedPosition, currentTeam) {
-  toggleSettingsPanel(false);
+// function showPlayerPanel(selectedPosition, currentTeam) {
+//   toggleSettingsPanel(false);
 
-  // remove the player panel if it already exists
-  if (playerPanel) playerPanel.remove();
+//   // remove the player panel if it already exists
+//   if (playerPanel) playerPanel.remove();
 
-  // create a new player panel
-  playerPanel = createDiv(
-    "<h1>" + selectedPosition.label + " - " + selectedPosition.name + "</h1>"
-  )
-    .position(0, height - 360)
-    .size(width, 100)
-    .class("player-panel");
+//   // create a new player panel
+//   playerPanel = createDiv(
+//     "<h1>" + selectedPosition.label + " - " + selectedPosition.name + "</h1>"
+//   )
+//     .position(0, height - 360)
+//     .size(width, 100)
+//     .class("player-panel");
 
-  // setup the selection box, it's options, and default
-  const playerSelection = createSelect();
-  playerSelection.parent(playerPanel);
-  playerSelection.option("-none-", "none");
-  teams[currentTeam].players.forEach((player) =>
-    playerSelection.option(player.name, player.id)
-  );
-  if (selectedPosition.player)
-    playerSelection.selected(selectedPosition.player.id);
-  else playerSelection.selected("none");
+//   // setup the selection box, it's options, and default
+//   const playerSelection = createSelect();
+//   playerSelection.parent(playerPanel);
+//   playerSelection.option("-none-", "none");
+//   teams[currentTeam].players.forEach((player) =>
+//     playerSelection.option(player.name, player.id)
+//   );
+//   if (selectedPosition.player)
+//     playerSelection.selected(selectedPosition.player.id);
+//   else playerSelection.selected("none");
 
-  // handle change event
-  playerSelection.changed(() => {
-    console.log("selected player:" + playerSelection.value());
-    let positions =
-      teams[currentTeam].games[currentGame].innings[currentInning].positions;
-    // iterate through the current positions and clear the player object if it matches the selected player
-    let i = 0;
-    positions.forEach((position) => {
-      if (
-        position.player &&
-        position.player.id.toString() === playerSelection.value()
-      )
-        position.player = undefined;
-    });
+//   // handle change event
+//   playerSelection.changed(() => {
+//     console.log("selected player:" + playerSelection.value());
+//     let positions =
+//       teams[currentTeam].games[currentGame].innings[currentInning].positions;
+//     // iterate through the current positions and clear the player object if it matches the selected player
+//     let i = 0;
+//     positions.forEach((position) => {
+//       if (
+//         position.player &&
+//         position.player.id.toString() === playerSelection.value()
+//       )
+//         position.player = undefined;
+//     });
 
-    // set the selected player to the position
-    if (playerSelection.value() === "none") selectedPosition.player = undefined;
-    else
-      selectedPosition.player =
-        teams[currentTeam].players[playerSelection.value()];
+//     // set the selected player to the position
+//     if (playerSelection.value() === "none") selectedPosition.player = undefined;
+//     else
+//       selectedPosition.player =
+//         teams[currentTeam].players[playerSelection.value()];
 
-    drawUi();
-    scrollToPageTop();
-  });
-}
+//     drawUi();
+//     scrollToPageTop();
+//   });
+// }

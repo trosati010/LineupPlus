@@ -95,5 +95,5 @@ function calculateWeight(player, positionLabel) {
   const positionRank =
     player.positions.split(",").indexOf(positionLabel.toString()) + 1;
   //return positionRank >= 0 ? player.rank * 10 + positionRank : Infinity;
-  return positionRank > 0 ? player.rank * positionRank : Infinity;
+  return positionRank > 0 ? player.rank * positionRank : 1000000;
 }
