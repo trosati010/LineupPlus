@@ -1,0 +1,228 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+input {
+  font-size: 1em;
+  padding: 10px 20px;
+}
+
+select {
+  font-size: 1em;
+  padding: 10px 20px;
+}
+
+.settings-button {
+  background-color: inherit;
+  color: #007bff;
+  border: none;
+  padding: 5px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.settings-panel {
+  position: fixed;
+  bottom: -180px; /* Initially hidden */
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: #f4f4f4;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: bottom 0.3s ease-in-out; /* Smooth slide effect */
+  font-family: arial;
+  font-size: 1em;
+  z-index: 100;
+}
+
+.input-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.fielding-button {
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  border: 2px solid white;
+  border-radius: 50%; /* Make the button circular */
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  font-family: Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.team-button {
+  padding: 5px 5px;
+  background: inherit;
+  color: #007bff;
+  border-left: 2px solid white;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-radius: 10%;
+  cursor: pointer;
+  text-align: left;
+  justify-content: left;
+  align-items: left;
+  font-size: 12px;
+  width: 30px;
+  height: 60px;
+}
+
+.loading-icon {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #007bff; /* Blue */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.player-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.player-panel {
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: center;
+  border: none;
+  z-index: 10;
+}
+
+.player-panel h1 {
+  font-size: 1.5em;
+  font-family: Arial, sans-serif;
+  color: #333; /* Dark gray */
+  margin: 10px 0;
+}
+
+.player-selection {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: transparent;
+}
+
+.player-selection option {
+  color: black;
+}
+
+.player-selection.visible {
+  display: block;
+}
+
+.team-selection {
+  color: blue;
+  background-color: transparent; /* Make the background transparent */
+  opacity: 0.8;
+  border: none; /* Add a border */
+  color: #333; /* Text color */
+  padding: 10px; /* Add padding */
+  font-size: 14px; /* Set font size */
+  border-radius: 5px; /* Optional: rounded corners */
+  outline: none; /* Remove focus outline */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.inning-tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 1px;
+  height: 30px;
+  width: 100%; /* Ensure container spans the entire canvas width */
+  padding: 0px 0px 0px 0px;
+}
+
+/* Tab styles */
+.inning-tab {
+  flex: 1; /* Make tabs evenly distribute within the container */
+  padding: 5px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #007bff;
+  cursor: pointer;
+  border-radius: 0px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid #fff;
+  box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* Selected tab styles */
+.selected-inning {
+  flex: 1; /* Make tabs evenly distribute within the container */
+  padding: 5px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  color: #000;
+  cursor: pointer;
+  border: none;
+  border-radius: 0px;
+  cursor: default;
+  box-shadow: none;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-container select {
+  font-size: 0.9em;
+  padding: 5px 5px;
+  color: #007bff;
+}
+
+.teamgame-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.9);
+}
